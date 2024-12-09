@@ -7,6 +7,33 @@ body{
     justify-content: center;
 }
 
+#scoreDisplay{
+
+    font-family: 'monospace', sans-serif;
+    font-size: 50px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    border: 3px solid whitesmoke;
+    padding: 5px;
+}
+
 canvas{
-    background-color: white;
+    background-color: black;
+    border: 10px solid blueviolet;
+    margin-top: 15px;
+}
+
+.Pause{
+    border: 15px solid blueviolet;
+    margin-right: 15px;
+}
+
+
+div{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

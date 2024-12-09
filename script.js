@@ -1,3 +1,25 @@
+// refrence is https://gist.github.com/straker/3c98304f8a6a9174efd8292800891ea1 
+// and chat gpt to help me remember how to do pause and upause along with the score function 
+
+var score = 0; 
+let pause = false;
+
+// my added code for more stuff and orginization 
+//pause 
+function space(){
+    if (pause === false){
+        // pause animation 
+        cancelAnimationFrame(rAF); // stop animation 
+        pause = true; 
+        console.log("Game Paused");
+    } else {
+        rAF = requestAnimationFrame(loop); // resume animation 
+        pause = false; 
+        console.log("Game Resumed");
+    } 
+}
+
+
 //get a random integer between the range or [min,max]
 
 function getRandomInt(min, max){
@@ -75,9 +97,11 @@ function placeTetromino(){
         }
     }
     // check for line clears starting from the bottom and working our way up
+    let linesCleared = 0; // for score 
     for (let row = playfield.length -1; row >= 0;){
         if (playfield[row].every(cell => !!cell)){
             // drop every row above this one
+            linesCleared++; // increse score 
             for (let r = row; r >= 0; r--){
                  for (let C = 0; C < playfield[r].length; C++){
                  playfield[r][C] = playfield[r-1][C];
@@ -87,6 +111,11 @@ function placeTetromino(){
         else{
             row--;
         }   
+    }
+
+    if(linesCleared > 0){
+        score += linesCleared * 100; // increases score by 100 for each line cleared 
+        console.log("Lines cleared:" + linesCleared);
     }
 
     tetromino = getNextTetromino();
@@ -215,9 +244,16 @@ function loop(){
             }
         }
     }
+
+    // update the score on the screen 
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    scoreDisplay.textContent = 'Score: ' + score;
 }
 // listen to keyboard events to move the active tetromino
 document.addEventListener('keydown', function(e) {
+    if (e.which === 32){ // space 
+        space(); // call space function to pause or unpause 
+    }
     if (gameOver) return;
     // left and right arrow keys (move)
     if (e.which  === 37 || e.which === 39) {
