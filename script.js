@@ -17,7 +17,7 @@ function space(){
         pause = false; 
         console.log("Game Resumed");
     } 
-}
+} 
 
 
 //get a random integer between the range or [min,max]

@@ -1,9 +1,8 @@
 body{
     height: 100%;
-    margin: 0;
     background: black;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
@@ -12,10 +11,11 @@ body{
     font-family: 'monospace', sans-serif;
     font-size: 50px;
     color: whitesmoke;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 1px 4px rgb(202, 202, 202);
     z-index: 10;
     border: 3px solid whitesmoke;
     padding: 5px;
+    margin: 15px;
 }
 
 canvas{
@@ -26,14 +26,20 @@ canvas{
 
 .Pause{
     border: 15px solid blueviolet;
-    margin-right: 15px;
+    background-color: blueviolet;
+    color:blanchedalmond;
+    text-shadow: 3px 3px 1px rgb(0, 0, 0);
+    margin: 15px;
+    font-size:40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
-div{
-    margin: 10px;
+.non-game {
+    margin: 15px;
     display: flex;
     flex-direction: column;
+    border: 2px solid ghostwhite;
+    margin: none;
     justify-content: center;
     align-items: center;
 }
